@@ -77,10 +77,13 @@ pipeline{
 					relativeTargetDir: 'store-builds']], userRemoteConfigs: [[credentialsId: 'isildur13', 
 					url: 'git@github.com:isildur13/store-builds.git']]])
 
+
 				sh 'cp output store-builds'
 
 				dir('store-builds') {
-
+					
+					sh 'git checkout main'
+					sh 'cp ../output ./store-builds/'
 					sh 'git status'
 					sh 'git config user.email "panchalyash13@gmail.com"'
 					sh 'git config user.name "isildur13"'
