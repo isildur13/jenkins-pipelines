@@ -78,22 +78,23 @@ pipeline{
 					url: 'git@github.com:isildur13/store-builds.git']]])
 
 					sh '''		
-					
 					cd store-builds &&
 					git checkout main &&
 					git status &&
 					git config user.email "panchalyash13@gmail.com" &&
 					git config user.name "isildur13" &&
 				    cd .. &&
-					cp output ./store-builds/
-						'''
-				
-				dir('store-builds'){
-					sh "git tag -a v-${env.BUILD_NUMBER} -m 'releasing v-${env.BUILD_NUMBER}'"
-
+					cp output ./store-builds/ &&
+					ls -la ./store-builds && cd store-builds &&	
+					git tag -a v-${env.BUILD_NUMBER} -m 'releasing v-${env.BUILD_NUMBER}'
+					'''
+					dir('store-builds'){
 					sshagent (credentials: ['isildur13']) {
 						sh "git push git@github.com:isildur13/store-builds.git --tags"
 					}
+					}
+
+		
 				}
 			
 			}
