@@ -4,6 +4,7 @@ services:
         jenkins:
                 image: jenkins/jenkins:2.337
                 container_name: jenkins
+                hostname: jenkins-master
                 user: "${UID}:${GID}"
                 ports:
                         - 8080:8080

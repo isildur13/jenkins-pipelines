@@ -48,7 +48,24 @@ pipeline{
 				unstash 'sample-c-codes'
 				sh "cd sample-c-codes/hello-world && make build"
 				sh "cd sample-c-codes/hello-world && ./output"
+
 			}
+			stash includes: 'sample-c-codes/hello-world/**', name: 'output-binary' 
+		}
+
+
+		stage("go back to jenkins node with the binary"){
+
+			agent {label "master"}
+			steps{
+
+				cleanWs()
+				unstash 'output-binary'
+
+				sh 'ls -la'
+			}
+
+
 		}
 
 
