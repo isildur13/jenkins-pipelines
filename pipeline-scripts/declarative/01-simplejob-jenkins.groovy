@@ -36,6 +36,7 @@ pipeline{
 							userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']]])
 
 				sh "ls -la"	
+				stash includes: '*', name: 'sample-c-codes' 
 			}
 		}
 
@@ -44,7 +45,7 @@ pipeline{
 		stage("Build and check"){
 					agent {label "alpha"}
 			steps{
-
+				unstash 'sample-c-codes'
 				sh "cd sample-c-codes && make build"
 				sh "cd sample-c-codes && ./output"
 
