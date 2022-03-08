@@ -8,11 +8,11 @@ pipeline{
 
 	stages{
 
-		stage("First stage")(
+		stage("First stage"){
 			step{
 			sh "echo Hello"
 			}
-		)
+		}
 
 
 	}
