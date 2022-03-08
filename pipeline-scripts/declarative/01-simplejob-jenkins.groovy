@@ -73,10 +73,12 @@ pipeline{
 		stage("checkout main branch of store-builds"){
 			steps{
 				checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
-					extensions:  [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'store-builds']],  
-					userRemoteConfigs: [[credentialsId: 'isildur13', 
+					extensions: [[$class: 'UserIdentity', 
+					email: 'panchalyash13@gmail.com', 
+					name: 'isildur13'], [$class: 'RelativeTargetDirectory', 
+					relativeTargetDir: 'store-builds']], userRemoteConfigs: [[credentialsId: 'isildur13', 
 					url: 'git@github.com:isildur13/store-builds.git']]])
-			
+
 				sh 'cp output store-builds'
 
 				dir('store-builds') {
