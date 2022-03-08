@@ -37,7 +37,9 @@ pipeline{
 
 				sh "ls -la"	
 			}
+		}
 
+		stage("Build and check"){
 			steps{
 
 				sh "cd sample-c-codes && make build"
