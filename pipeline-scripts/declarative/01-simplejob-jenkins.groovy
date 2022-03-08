@@ -19,7 +19,7 @@ pipeline{
 		stage("Cloning the sample repo"){
 			steps{
 
-				git(branch: 'master',url: 'https://github.com/papanito/jenkins-pipeline-helper.git', relativeTargetDir: 'MyFolder/'])
+				git(branch: 'master',url: 'https://github.com/papanito/jenkins-pipeline-helper.git', relativeTargetDir: 'MyFolder/')
 
 				sh "ls -la"	
 			}
