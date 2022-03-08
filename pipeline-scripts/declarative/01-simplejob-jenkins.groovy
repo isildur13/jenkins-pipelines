@@ -43,7 +43,7 @@ pipeline{
 
 
 		stage("Build and check"){
-					agent {label "alpha"}
+			agent {label "alpha"}
 			steps{
 				unstash 'sample-c-codes'
 				sh "cd sample-c-codes/hello-world && make build"
@@ -55,19 +55,29 @@ pipeline{
 
 
 		stage("go back to jenkins node with the binary"){
-
 			agent {label "master"}
 			steps{
-
 				cleanWs()
 				unstash 'output-binary'
-
 				sh 'ls -la'
 			}
-
-
 		}
 
+		stage("go back to jenkins node with the binary 1"){
+			steps{
+				sh 'ls -la'
+				sh "mv sample-c-codes/hello-world/output ."
+				sh "ls -la"
+			}
+		}
+
+
+		stage("go back to jenkins node with the binary 2"){
+			agent{label "master"}
+			steps{
+				sh 'ls -la'
+			}
+		}
 
 	}
 
