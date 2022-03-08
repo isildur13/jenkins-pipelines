@@ -85,7 +85,7 @@ pipeline{
 					git config user.email "panchalyash13@gmail.com" &&
 					git config user.name "isildur13" &&
 				    cd .. &&
-					cp output ./store-builds/'
+					cp output ./store-builds/
 						'''
 				
 				dir('store-builds'){
