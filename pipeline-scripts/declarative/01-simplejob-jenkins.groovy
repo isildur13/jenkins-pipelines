@@ -39,6 +39,8 @@ pipeline{
 			}
 		}
 
+
+		agent {label "alpha"}
 		stage("Build and check"){
 			steps{
 
