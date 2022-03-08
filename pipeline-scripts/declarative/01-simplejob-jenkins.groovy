@@ -87,7 +87,7 @@ pipeline{
 					sh 'git add -A'
 					sh """
 					
-					git commit -m "added ${{env.BUILD_ID}}"
+					git commit -m "added ${env.BUILD_NUMBER}"
 					
 					"""
 					sh "git push"
