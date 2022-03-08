@@ -84,13 +84,9 @@ pipeline{
 					sh 'git status'
 					sh 'git config user.email "panchalyash13@gmail.com"'
 					sh 'git config user.name "isildur13"'
-					sh 'git add -A'
-					sh """
-					
-					git commit -m "added ${env.BUILD_NUMBER}"
-					
-					"""
-					sh "git push HEAD:refs/heads/main --force"
+
+					sh "git tag -a v-${env.BUILD_NUMBER} -m 'Jenkinsfile push tag'"
+					sh "git push v-${env.BUILD_NUMBER}"
 				}
 			
 			}
