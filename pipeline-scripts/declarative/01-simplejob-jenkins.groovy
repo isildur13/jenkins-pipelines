@@ -83,8 +83,13 @@ pipeline{
 
 				dir('store-builds') {
 					sh 'git config user.email "panchalyash13@gmail.com"'
-					sh 'git config --global user.name "isildur13"'
-					sh 'git commit -m "added latest"'
+					sh 'git config user.name "isildur13"'
+					sh 'git add -A'
+					sh """
+					
+					git commit -m "added ${{env.BUILD_ID}}"
+					
+					"""
 					sh "git push"
 				}
 			
