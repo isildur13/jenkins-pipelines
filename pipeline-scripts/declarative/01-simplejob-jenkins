@@ -1,0 +1,23 @@
+pipeline{
+
+	agent {label "master"}
+
+	options{
+
+	}
+
+	stages{
+
+		stage("First stage")(
+			step{
+			sh "echo Hello"
+			}
+		)
+
+
+	}
+
+
+
+
+}
