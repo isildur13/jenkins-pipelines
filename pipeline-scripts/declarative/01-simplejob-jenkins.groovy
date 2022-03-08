@@ -77,13 +77,17 @@ pipeline{
 					relativeTargetDir: 'store-builds']], userRemoteConfigs: [[credentialsId: 'isildur13', 
 					url: 'git@github.com:isildur13/store-builds.git']]])
 
-				dir('store-builds') {				
-					sh 'git checkout main'
-					sh 'git status'
-					sh 'git config user.email "panchalyash13@gmail.com"'
-					sh 'git config user.name "isildur13"'
-				}
-				sh 'cp output store-builds'
+					sh '''		
+					
+					cd store-builds &&
+					git checkout main &&
+					git status &&
+					git config user.email "panchalyash13@gmail.com" &&
+					git config user.name "isildur13" &&
+				    cd .. &&
+					cp output ./store-builds/'
+						'''
+				
 				dir('store-builds'){
 					sh "git tag -a v-${env.BUILD_NUMBER} -m 'releasing v-${env.BUILD_NUMBER}'"
 
