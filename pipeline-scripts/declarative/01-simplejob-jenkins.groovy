@@ -10,6 +10,13 @@ pipeline{
 
 	stages{
 
+		stage("clean workspace"){
+			steps{
+			cleanWs()
+			}
+		}
+
+
 		stage("First stage"){
 			steps{
 			sh "echo Hello"
