@@ -80,6 +80,8 @@ pipeline{
 				sh 'cp output store-builds'
 
 				dir('store-builds') {
+
+					sh 'git status'
 					sh 'git config user.email "panchalyash13@gmail.com"'
 					sh 'git config user.name "isildur13"'
 					sh 'git add -A'
