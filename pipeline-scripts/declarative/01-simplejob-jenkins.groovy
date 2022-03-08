@@ -48,9 +48,9 @@ pipeline{
 				unstash 'sample-c-codes'
 				sh "cd sample-c-codes/hello-world && make build"
 				sh "cd sample-c-codes/hello-world && ./output"
-
+				stash includes: 'sample-c-codes/hello-world/**', name: 'output-binary' 
 			}
-			stash includes: 'sample-c-codes/hello-world/**', name: 'output-binary' 
+			
 		}
 
 
