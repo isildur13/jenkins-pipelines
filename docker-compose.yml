@@ -5,7 +5,8 @@ services:
                 image: jenkins/jenkins:2.337
                 container_name: jenkins
                 hostname: jenkins-master
-                user: "${UID}:${GID}"
+                privileged: true
+                user: root
                 ports:
                         - 8080:8080
                 volumes:
@@ -15,3 +16,7 @@ services:
                                 limits:
                                         cpus: '2'
                                         memory: 2G
+
+
+
+
