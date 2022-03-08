@@ -85,8 +85,8 @@ pipeline{
 				}
 				sh 'cp output store-builds'
 				dir('store-builds'){
-					sh "git tag -a v-${env.BUILD_NUMBER} -m 'Jenkinsfile push tag'"
-					sh "git push v-${env.BUILD_NUMBER}"
+					sh "git tag -a v-${env.BUILD_NUMBER} -m 'releasing v-${env.BUILD_NUMBER}'"
+					sh "git push --tags"
 				}
 			
 			}
