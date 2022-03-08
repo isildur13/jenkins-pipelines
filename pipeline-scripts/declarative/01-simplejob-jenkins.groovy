@@ -26,7 +26,7 @@ pipeline{
 		stage("Cloning the sample repo"){
 			steps{
 
-			checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+			checkout([$class: 'GitSCM', branches: [[name: '*/main']],
 						extensions: [[$class: 'CloneOption', 
 						depth: 1, 
 						noTags: true, 
