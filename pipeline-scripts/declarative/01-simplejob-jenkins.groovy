@@ -1,5 +1,4 @@
 pipeline{
-
 	agent {label "master"}
 
 	options{
@@ -55,7 +54,6 @@ pipeline{
 
 
 		stage("go back to jenkins node with the binary"){
-			agent {label "master"}
 			steps{
 				cleanWs()
 				unstash 'output-binary'
@@ -66,19 +64,8 @@ pipeline{
 		stage("go back to jenkins node with the binary 1"){
 			steps{
 				sh 'ls -la'
-				sh "mv sample-c-codes/hello-world/output ."
-				sh "ls -la"
 			}
 		}
-
-
-		stage("go back to jenkins node with the binary 2"){
-			agent{label "master"}
-			steps{
-				sh 'ls -la'
-			}
-		}
-
 	}
 
 
