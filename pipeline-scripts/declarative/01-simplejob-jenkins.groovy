@@ -32,7 +32,7 @@ pipeline{
 							extensions: [[$class: 'RelativeTargetDirectory', 
 							relativeTargetDir: 'sample-c-codes']], 
 							submoduleCfg: [], 
-							[$class: 'CloneOption', depth: 1, noTags: true, reference: '', shallow: true]],
+							[$class: 'CloneOption', depth: 1, noTags: true, reference: '', shallow: true],
 							userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']]])
 
 				sh "ls -la"	
