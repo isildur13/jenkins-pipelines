@@ -73,9 +73,7 @@ pipeline{
 		stage("checkout main branch of store-builds"){
 			steps{
 				checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
-					extensions: [[$class: 'UserIdentity', 
-					email: 'panchalyash13@gmail.com', 
-					name: 'isildur13'], [$class: 'RelativeTargetDirectory', 
+					extensions: [[$class: 'RelativeTargetDirectory', 
 					relativeTargetDir: 'store-builds']], userRemoteConfigs: [[credentialsId: 'isildur13', 
 					url: 'git@github.com:isildur13/store-builds.git']]])
 
@@ -90,7 +88,7 @@ pipeline{
 					git commit -m "added ${env.BUILD_NUMBER}"
 					
 					"""
-					sh "git push origin/main"
+					sh "git push HEAD:refs/heads/main --force"
 				}
 			
 			}
