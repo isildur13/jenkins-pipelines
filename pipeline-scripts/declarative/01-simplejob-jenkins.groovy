@@ -19,7 +19,13 @@ pipeline{
 		stage("Cloning the sample repo"){
 			steps{
 
-				git(branch: 'master',url: 'https://github.com/papanito/jenkins-pipeline-helper.git', relativeTargetDir: 'MyFolder/')
+				checkout([$class: 'GitSCM', 
+							branches: [[name: '*/master']], 
+							doGenerateSubmoduleConfigurations: false, 
+							extensions: [[$class: 'RelativeTargetDirectory', 
+							relativeTargetDir: 'checkout-directory']], 
+							submoduleCfg: [], 
+							userRemoteConfigs: [[url: 'https://github.com/luxengine/math.git']]])
 
 				sh "ls -la"	
 			}
