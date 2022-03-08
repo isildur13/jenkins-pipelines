@@ -82,7 +82,8 @@ pipeline{
 				sh 'cp output store-builds'
 
 				dir('store-builds') {
-					sh "git add -A"
+					sh 'git config user.email "panchalyash13@gmail.com"'
+					sh 'git config --global user.name "isildur13"'
 					sh 'git commit -m "added latest"'
 					sh "git push"
 				}
