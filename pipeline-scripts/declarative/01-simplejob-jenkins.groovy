@@ -89,22 +89,14 @@ pipeline{
 					git tag -a v-${env.BUILD_NUMBER} -m 'releasing v-${env.BUILD_NUMBER}'
 					'''
 					dir('store-builds'){
-					sshagent (credentials: ['isildur13']) {
-						sh "git push git@github.com:isildur13/store-builds.git --tags"
+						sshagent (credentials: ['isildur13']) {
+							sh "git push git@github.com:isildur13/store-builds.git --tags"
+						}
 					}
-					}
-
-		
-				}
-			
+					
 			}
+			
 		}
-
-
-
 	}
-
-
-
 
 }
