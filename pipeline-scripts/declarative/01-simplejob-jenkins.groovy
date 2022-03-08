@@ -90,7 +90,7 @@ pipeline{
 					git commit -m "added ${env.BUILD_NUMBER}"
 					
 					"""
-					sh "git push"
+					sh "git push origin/main"
 				}
 			
 			}
