@@ -47,7 +47,7 @@ pipeline{
 			steps{
 				unstash 'sample-c-codes'
 				sh "cd sample-c-codes/hello-world && make build"
-				sh "cd sample-c-codes/hello-world && ./output && exit 0"
+				sh "cd sample-c-codes/hello-world && ./output"
 			}
 		}
 
