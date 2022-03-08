@@ -68,11 +68,6 @@ pipeline{
 			}
 		}
 
-		stage("go back to jenkins node with the binary 1"){
-			steps{
-				sh 'ls -la'
-			}
-		}
 
 
 		stage("checkout main branch of store-builds"){
