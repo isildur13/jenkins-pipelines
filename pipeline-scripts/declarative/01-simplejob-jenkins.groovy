@@ -57,6 +57,7 @@ pipeline{
 			steps{
 				cleanWs()
 				unstash 'output-binary'
+				sh 'mv sample-c-codes/hello-world/output . && rm -rf sample-c-codes'
 				sh 'ls -la'
 			}
 		}
