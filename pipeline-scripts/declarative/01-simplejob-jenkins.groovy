@@ -95,6 +95,11 @@ pipeline{
 
 							sh "ls -la"	
 
+							sh """ 
+							git add -A 
+							git commit -m "adding commit for tag v-${env.BUILD_NUMBER}" 
+							"""
+
 							sh "git tag -a v-${env.BUILD_NUMBER} -m 'releasing v-${env.BUILD_NUMBER}'"
 
 							sh "git push git@github.com:isildur13/store-builds.git --tags"
