@@ -30,8 +30,9 @@ pipeline{
 							branches: [[name: '*/main']], 
 							doGenerateSubmoduleConfigurations: false, 
 							extensions: [[$class: 'RelativeTargetDirectory', 
-							relativeTargetDir: 'checkout-directory']], 
+							relativeTargetDir: 'sample-c-codes']], 
 							submoduleCfg: [], 
+							[$class: 'CloneOption', depth: 1, noTags: true, reference: '', shallow: true]],
 							userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']]])
 
 				sh "ls -la"	
