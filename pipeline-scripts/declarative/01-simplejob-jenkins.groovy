@@ -46,8 +46,8 @@ pipeline{
 					agent {label "alpha"}
 			steps{
 				unstash 'sample-c-codes'
-				sh "cd sample-c-codes && make build"
-				sh "cd sample-c-codes && ./output"
+				sh "cd sample-c-codes/hello-world && make build"
+				sh "cd sample-c-codes/hello-world && ./output"
 
 			}
 
