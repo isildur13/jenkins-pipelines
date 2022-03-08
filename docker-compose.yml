@@ -1,0 +1,16 @@
+version: "3.6"
+
+services:
+        jenkins:
+                image: jenkins/jenkins:2.337
+                container_name: jenkins
+                user: "${UID}:${GID}"
+                ports:
+                        - 8080:8080
+                volumes:
+                        - ./jenkins_data:/var/jenkins_home
+                deploy:
+                        resources:
+                                limits:
+                                        cpus: '2'
+                                        memory: 2G
