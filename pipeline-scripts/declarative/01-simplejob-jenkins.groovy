@@ -26,18 +26,24 @@ pipeline{
 		stage("Cloning the sample repo"){
 			steps{
 
-			checkout([$class: 'GitSCM', branches: [[name: '*/main']],
-						extensions: [[$class: 'CloneOption', 
-						depth: 1, 
-						noTags: true, 
-						reference: '', 
-						shallow: true], [$class: 'RelativeTargetDirectory', 
-						relativeTargetDir: 'sample-c-codes']], 
-						userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']]])
+				checkout([$class: 'GitSCM', branches: [[name: '*/main']],
+							extensions: [[$class: 'CloneOption', 
+							depth: 1, 
+							noTags: true, 
+							reference: '', 
+							shallow: true], [$class: 'RelativeTargetDirectory', 
+							relativeTargetDir: 'sample-c-codes']], 
+							userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']]])
 
 				sh "ls -la"	
 			}
 
+			steps{
+
+				sh "cd sample-c-codes && make build"
+				sh "cd sample-c-codes && ./output"
+
+			}
 
 		}
 
