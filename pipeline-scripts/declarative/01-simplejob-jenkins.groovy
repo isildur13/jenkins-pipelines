@@ -36,7 +36,7 @@ pipeline{
 							userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']]])
 
 				sh "ls -la"	
-				stash includes: '*', name: 'sample-c-codes' 
+				stash includes: '', name: 'sample-c-codes' 
 			}
 		}
 
