@@ -40,8 +40,9 @@ pipeline{
 		}
 
 
-		agent {label "alpha"}
+
 		stage("Build and check"){
+					agent {label "alpha"}
 			steps{
 
 				sh "cd sample-c-codes && make build"
