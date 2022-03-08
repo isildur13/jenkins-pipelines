@@ -27,12 +27,14 @@ pipeline{
 			steps{
 
 				checkout([$class: 'GitSCM', 
-							branches: [[name: '*/main'],[$class: 'CloneOption', depth: 1, noTags: true, reference: '', shallow: true]], 
+							branches: [[name: '*/main'], 
 							doGenerateSubmoduleConfigurations: false, 
 							extensions: [[$class: 'RelativeTargetDirectory', 
 							relativeTargetDir: 'sample-c-codes']], 
 							submoduleCfg: [], 
-							userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']]])
+							userRemoteConfigs: [[url: 'https://github.com/isildur13/sample-c-codes.git']],
+							depth: 1
+							])
 
 				sh "ls -la"	
 			}
